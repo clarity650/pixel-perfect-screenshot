@@ -53,7 +53,7 @@ export function ChatPanel({
       <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-6">
         {msgs.map((m, i) => m.role === "assistant" ? (
           <div key={i} className="flex gap-3">
-            <div className="grid size-9 shrink-0 place-items-center rounded-full border-2 border-foreground bg-highlight text-lg">{botEmoji}</div>
+            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-highlight text-lg">{botEmoji}</div>
             <div className="min-w-0">
               <div className="text-xs font-semibold text-muted-foreground">{botName}</div>
               <div className="prose-chat text-[15px] leading-relaxed"><ReactMarkdown>{m.content}</ReactMarkdown></div>
@@ -69,7 +69,7 @@ export function ChatPanel({
         )}
         <div ref={endRef} />
       </div>
-      <div className="border-t-2 border-foreground bg-muted/60 p-3">
+      <div className="border-t border-border bg-muted/60 p-3">
         {extraActions && <div className="mb-2 flex flex-wrap gap-2">{extraActions(send, busy)}</div>}
         <form className="flex items-end gap-2" onSubmit={(e) => { e.preventDefault(); send(text); }}>
           <Textarea ref={inputRef} value={text} onChange={(e) => setText(e.target.value)} rows={2} placeholder={placeholder}

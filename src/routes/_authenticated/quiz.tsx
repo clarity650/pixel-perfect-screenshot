@@ -44,7 +44,7 @@ function Page() {
       <PageTitle emoji="📝" title="Practice Quiz" sub="5 questions, instant feedback, points for every correct answer." />
       <TopicForm onSubmit={gen} loading={loading} cta="Start quiz">
         <div className="flex gap-2">{(["easy", "medium", "hard"] as const).map((d) => (
-          <button key={d} type="button" onClick={() => setDiff(d)} className={`flex-1 rounded-xl border-2 py-2 text-sm font-semibold capitalize ${diff === d ? "border-foreground bg-highlight" : "border-border"}`}>{d}</button>
+          <button key={d} type="button" onClick={() => setDiff(d)} className={`flex-1 rounded-xl border-2 py-2 text-sm font-semibold capitalize ${diff === d ? "border-primary bg-highlight" : "border-border"}`}>{d}</button>
         ))}</div>
       </TopicForm>
     </div>
@@ -65,7 +65,7 @@ function Page() {
           <div className="mt-3 grid gap-2">
             {q.choices.map((c, j) => {
               const picked = picks[i] === j; const right = j === q.answer;
-              const cls = submitted ? (right ? "border-success bg-success/15" : picked ? "border-destructive bg-destructive/10" : "border-border opacity-70") : picked ? "border-foreground bg-secondary" : "border-border hover:border-foreground";
+              const cls = submitted ? (right ? "border-success bg-success/15" : picked ? "border-destructive bg-destructive/10" : "border-border opacity-70") : picked ? "border-primary bg-secondary" : "border-border hover:border-primary";
               return <button key={j} disabled={submitted} onClick={() => setPicks({ ...picks, [i]: j })} className={`rounded-xl border-2 px-4 py-2.5 text-left text-sm transition-colors ${cls}`}>{String.fromCharCode(65 + j)}. {c}</button>;
             })}
           </div>

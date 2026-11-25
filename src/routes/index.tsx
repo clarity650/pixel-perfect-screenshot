@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "StudyMate AI — Your AI study buddy for Grade 9 STE" },
-      { name: "description", content: "Flashcards, quizzes, study guides, an AI chat tutor and Teach-to-AI mode built for Grade 9 STE students of Agusan National High School." },
+      { title: "StudyMate AI — Your AI study buddy" },
+      { name: "description", content: "Flashcards, quizzes, study guides, an AI chat tutor and Teach-to-AI mode that make studying personal." },
       { property: "og:title", content: "StudyMate AI — Your AI study buddy" },
-      { property: "og:description", content: "Personalized AI learning support for Grade 9 STE students." },
+      { property: "og:description", content: "Personalized AI learning support for students." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -34,12 +34,12 @@ function Landing() {
 
       <section className="grid items-center gap-10 py-16 md:grid-cols-[1.2fr_1fr] md:py-24">
         <div>
-          <p className="mb-4 inline-block rounded-full border-2 border-foreground bg-highlight px-3 py-1 text-sm font-semibold">For Grade 9 STE · Agusan National High School</p>
+          <p className="mb-4 inline-block rounded-full bg-highlight px-3 py-1 text-sm font-semibold">Your personal AI study buddy</p>
           <h1 className="text-5xl font-extrabold leading-[1.05] sm:text-6xl">
             Study smarter with a <span className="marker">mate</span> who never gets tired of your questions.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-            StudyMate AI turns your Science and Math lessons into flashcards, quizzes and guides — and lets you learn by teaching.
+            StudyMate AI turns your lessons into flashcards, quizzes and guides — and lets you learn by teaching.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="pop" size="lg"><Link to="/auth">Start studying — it's free</Link></Button>
@@ -64,7 +64,6 @@ function Landing() {
           </div>
         ))}
       </section>
-      <footer className="border-t pb-6 pt-6 text-sm text-muted-foreground">A research innovation by Yu & Quismundo, Grade 9 – Avogadro.</footer>
     </div>
   );
 }

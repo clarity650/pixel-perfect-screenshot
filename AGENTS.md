@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Points and streaks change only through the `record_activity` database function (students cannot update points directly) — prevents cheating.
+- AI calls live in `src/lib/ai.functions.ts` server functions behind `requireSupabaseAuth` — keeps prompts and keys server-side and limits AI use to signed-in students.
+- Badges/levels are derived client-side from activities in `src/lib/study.ts` (tested in `study.test.ts`) — no extra tables needed.

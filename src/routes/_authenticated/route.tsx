@@ -28,12 +28,12 @@ function Layout() {
   const nav = useNavigate();
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-20 border-b-2 border-foreground bg-background/90 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
           <Link to="/dashboard" className="text-lg font-extrabold" style={{ fontFamily: "var(--font-display)" }}>StudyMate<span className="text-accent">.</span>AI</Link>
           <div className="ml-auto flex items-center gap-2 text-sm font-semibold">
-            <span className="rounded-full border-2 border-foreground bg-highlight px-2.5 py-0.5">🔥 {p?.streak ?? 0}</span>
-            <span className="rounded-full border-2 border-foreground bg-accent px-2.5 py-0.5 text-accent-foreground">⭐ {p?.points ?? 0}</span>
+            <span className="rounded-full bg-highlight px-2.5 py-0.5">🔥 {p?.streak ?? 0}</span>
+            <span className="rounded-full bg-accent px-2.5 py-0.5 text-accent-foreground">⭐ {p?.points ?? 0}</span>
             <button aria-label="Sign out" className="rounded-full p-2 hover:bg-muted" onClick={async () => { await supabase.auth.signOut(); nav({ to: "/" }); }}><LogOut className="size-4" /></button>
           </div>
         </div>

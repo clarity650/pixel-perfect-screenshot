@@ -36,7 +36,7 @@ function Dashboard() {
         <h2 className="mb-3 text-2xl font-bold">Start studying</h2>
         <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {([["/flashcards","🃏","Flashcards"],["/quiz","📝","Quiz"],["/guide","🗺️","Guide"],["/tutor","💬","Tutor"],["/teach","🧑‍🏫","Teach AI"],["/explain","❓","I Don't Get It"]] as const).map(([to,e,l]) => (
-            <Link key={to} to={to} className="rounded-2xl border-2 border-foreground bg-card p-4 text-center font-semibold transition-transform hover:-translate-y-1 hover:shadow-pop"><div className="text-3xl">{e}</div><div className="mt-1 text-sm">{l}</div></Link>
+            <Link key={to} to={to} className="rounded-3xl border border-border bg-card p-4 text-center font-semibold transition-transform hover:-translate-y-1 hover:shadow-pop"><div className="text-3xl">{e}</div><div className="mt-1 text-sm">{l}</div></Link>
           ))}
         </div>
       </section>
@@ -46,7 +46,7 @@ function Dashboard() {
           <h2 className="mb-3 text-xl font-bold">Badges</h2>
           <div className="grid grid-cols-3 gap-3">
             {badges.map((b) => (
-              <div key={b.id} title={b.desc} className={`rounded-xl border-2 p-3 text-center ${b.earned ? "border-foreground bg-highlight" : "border-dashed border-border opacity-50 grayscale"}`}>
+              <div key={b.id} title={b.desc} className={`rounded-xl border-2 p-3 text-center ${b.earned ? "border-primary bg-highlight" : "border-dashed border-border opacity-50 grayscale"}`}>
                 <div className="text-2xl">{b.emoji}</div><div className="mt-1 text-xs font-semibold">{b.name}</div><div className="text-[10px] text-muted-foreground">{b.desc}</div>
               </div>
             ))}

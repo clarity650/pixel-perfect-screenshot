@@ -26,7 +26,7 @@ export function TopicForm({
         <div className="flex flex-wrap gap-2">
           {SUBJECTS.map((s) => (
             <button type="button" key={s} onClick={() => setSubject(s)}
-              className={`rounded-full border-2 px-3 py-1 text-sm font-medium transition-colors ${subject === s ? "border-foreground bg-primary text-primary-foreground" : "border-border bg-card hover:border-foreground"}`}>
+              className={`rounded-full border-2 px-3 py-1 text-sm font-medium transition-colors ${subject === s ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:border-primary"}`}>
               {s}
             </button>
           ))}
