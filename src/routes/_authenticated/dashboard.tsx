@@ -2,9 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { profileQuery, activitiesQuery, computeBadges, levelFor } from "@/lib/study";
 import { Progress } from "@/components/ui/progress";
+import { Bunny } from "@/components/Bunny";
+import { Button } from "@/components/ui/button";
+import { activeStreak, asFur, asOutfit, OUTFITS } from "@/lib/rewards";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "My progress — StudyMate AI" }, { name: "description", content: "Your points, streak, badges and study history." }, { property: "og:title", content: "My progress — StudyMate AI" }, { property: "og:description", content: "Your points, streak, badges and study history." }] }),
+  head: () => ({ meta: [{ title: "My progress — StudyMate AI" }, { name: "description", content: "Your points, streak, badges and study history." }, { property: "og:title", content: "My progress — StudyMate AI" }, { property: "og:description", content: "Your points, streak, badges and study history." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Dashboard,
 });
 
@@ -13,7 +17,9 @@ const LABEL: Record<string, string> = { flashcards: "🃏 Flashcards", quiz: "�
 function Dashboard() {
   const { data: p } = useQuery(profileQuery);
   const { data: acts = [] } = useQuery(activitiesQuery);
-  const badges = computeBadges(p ?? null, acts);
+  const streak = activeStreak(p);
+  const badges = computeBadges(p ? { ...p, streak } : null, acts);
+  const nextOutfit = OUTFITS.find((o) => o.days > (p?.study_days ?? 0));
   const { level, into } = levelFor(p?.points ?? 0);
   const quizzes = acts.filter((a) => a.kind === "quiz" && a.total);
   const bySubject = new Map<string, { s: number; t: number }>();
@@ -28,9 +34,14 @@ function Dashboard() {
 
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="card-pop p-5"><div className="text-sm text-muted-foreground">Level</div><div className="text-4xl font-extrabold">{level}</div><Progress value={into} className="mt-3" /><div className="mt-1 text-xs text-muted-foreground">{100 - into} pts to level {level + 1}</div></div>
-        <div className="card-pop p-5"><div className="text-sm text-muted-foreground">Study streak</div><div className="text-4xl font-extrabold">🔥 {p?.streak ?? 0}</div><div className="mt-2 text-xs text-muted-foreground">Study every day to keep it going</div></div>
+        <div className="card-pop p-5"><div className="text-sm text-muted-foreground">Study streak</div><div className="text-4xl font-extrabold">🔥 {streak}</div><div className="mt-2 text-xs text-muted-foreground">Study every day to keep it going</div></div>
         <div className="card-pop p-5"><div className="text-sm text-muted-foreground">Total points</div><div className="text-4xl font-extrabold">⭐ {p?.points ?? 0}</div><div className="mt-2 text-xs text-muted-foreground">{acts.length} study sessions</div></div>
       </div>
+
+      <section className="flex items-center gap-4 border-y border-border py-4 sm:gap-6" aria-label="Bunny rewards">
+        <div className="h-32 w-28 shrink-0"><Bunny small fur={asFur(p?.bunny_fur)} outfit={asOutfit(p?.bunny_outfit)} /></div>
+        <div className="min-w-0 flex-1"><h2 className="text-2xl">Your study buddy is growing with you</h2><p className="mt-1 text-sm text-muted-foreground">{nextOutfit ? `${nextOutfit.name} at ${nextOutfit.days} study days · ${p?.study_days ?? 0} collected` : "All bunny outfits unlocked — lovely work!"}</p><Button asChild variant="link" className="mt-2 h-auto px-0"><Link to="/rewards">Visit your bunny <ArrowRight /></Link></Button></div>
+      </section>
 
       <section>
         <h2 className="mb-3 text-2xl font-bold">Start studying</h2>

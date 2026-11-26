@@ -17,6 +17,7 @@ import { Route as AuthenticatedExplainRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedFlashcardsRouteImport } from './routes/_authenticated/flashcards'
 import { Route as AuthenticatedGuideRouteImport } from './routes/_authenticated/guide'
 import { Route as AuthenticatedQuizRouteImport } from './routes/_authenticated/quiz'
+import { Route as AuthenticatedRewardsRouteImport } from './routes/_authenticated/rewards'
 import { Route as AuthenticatedTeachRouteImport } from './routes/_authenticated/teach'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 
@@ -59,6 +60,11 @@ const AuthenticatedQuizRoute = AuthenticatedQuizRouteImport.update({
   path: '/quiz',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedRewardsRoute = AuthenticatedRewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedTeachRoute = AuthenticatedTeachRouteImport.update({
   id: '/teach',
   path: '/teach',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/flashcards': typeof AuthenticatedFlashcardsRoute
   '/guide': typeof AuthenticatedGuideRoute
   '/quiz': typeof AuthenticatedQuizRoute
+  '/rewards': typeof AuthenticatedRewardsRoute
   '/teach': typeof AuthenticatedTeachRoute
   '/tutor': typeof AuthenticatedTutorRoute
 }
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/flashcards': typeof AuthenticatedFlashcardsRoute
   '/guide': typeof AuthenticatedGuideRoute
   '/quiz': typeof AuthenticatedQuizRoute
+  '/rewards': typeof AuthenticatedRewardsRoute
   '/teach': typeof AuthenticatedTeachRoute
   '/tutor': typeof AuthenticatedTutorRoute
 }
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/_authenticated/flashcards': typeof AuthenticatedFlashcardsRoute
   '/_authenticated/guide': typeof AuthenticatedGuideRoute
   '/_authenticated/quiz': typeof AuthenticatedQuizRoute
+  '/_authenticated/rewards': typeof AuthenticatedRewardsRoute
   '/_authenticated/teach': typeof AuthenticatedTeachRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
 }
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/flashcards'
     | '/guide'
     | '/quiz'
+    | '/rewards'
     | '/teach'
     | '/tutor'
   fileRoutesByTo: FileRoutesByTo
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/flashcards'
     | '/guide'
     | '/quiz'
+    | '/rewards'
     | '/teach'
     | '/tutor'
   id:
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/_authenticated/flashcards'
     | '/_authenticated/guide'
     | '/_authenticated/quiz'
+    | '/_authenticated/rewards'
     | '/_authenticated/teach'
     | '/_authenticated/tutor'
   fileRoutesById: FileRoutesById
@@ -206,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedQuizRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/rewards': {
+      id: '/_authenticated/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof AuthenticatedRewardsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/teach': {
       id: '/_authenticated/teach'
       path: '/teach'
@@ -229,6 +248,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedFlashcardsRoute: typeof AuthenticatedFlashcardsRoute
   AuthenticatedGuideRoute: typeof AuthenticatedGuideRoute
   AuthenticatedQuizRoute: typeof AuthenticatedQuizRoute
+  AuthenticatedRewardsRoute: typeof AuthenticatedRewardsRoute
   AuthenticatedTeachRoute: typeof AuthenticatedTeachRoute
   AuthenticatedTutorRoute: typeof AuthenticatedTutorRoute
 }
@@ -239,6 +259,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedFlashcardsRoute: AuthenticatedFlashcardsRoute,
   AuthenticatedGuideRoute: AuthenticatedGuideRoute,
   AuthenticatedQuizRoute: AuthenticatedQuizRoute,
+  AuthenticatedRewardsRoute: AuthenticatedRewardsRoute,
   AuthenticatedTeachRoute: AuthenticatedTeachRoute,
   AuthenticatedTutorRoute: AuthenticatedTutorRoute,
 }

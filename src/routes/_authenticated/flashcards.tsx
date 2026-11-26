@@ -8,7 +8,7 @@ import { makeFlashcards, type Flashcard } from "@/lib/ai.functions";
 import { recordActivity } from "@/lib/study";
 
 export const Route = createFileRoute("/_authenticated/flashcards")({
-  head: () => ({ meta: [{ title: "AI Flashcards — StudyMate AI" }, { name: "description", content: "Turn any lesson into active-recall flashcards." }, { property: "og:title", content: "AI Flashcards — StudyMate AI" }, { property: "og:description", content: "Turn any lesson into active-recall flashcards." }] }),
+  head: () => ({ meta: [{ title: "AI Flashcards — StudyMate AI" }, { name: "description", content: "Turn any lesson into active-recall flashcards." }, { property: "og:title", content: "AI Flashcards — StudyMate AI" }, { property: "og:description", content: "Turn any lesson into active-recall flashcards." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Page,
 });
 

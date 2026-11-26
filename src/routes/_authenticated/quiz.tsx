@@ -8,7 +8,7 @@ import { makeQuiz, type QuizQ } from "@/lib/ai.functions";
 import { recordActivity } from "@/lib/study";
 
 export const Route = createFileRoute("/_authenticated/quiz")({
-  head: () => ({ meta: [{ title: "Practice Quiz — StudyMate AI" }, { name: "description", content: "AI practice quizzes with instant explanations." }, { property: "og:title", content: "Practice Quiz — StudyMate AI" }, { property: "og:description", content: "AI practice quizzes with instant explanations." }] }),
+  head: () => ({ meta: [{ title: "Practice Quiz — StudyMate AI" }, { name: "description", content: "AI practice quizzes with instant explanations." }, { property: "og:title", content: "Practice Quiz — StudyMate AI" }, { property: "og:description", content: "AI practice quizzes with instant explanations." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Page,
 });
 

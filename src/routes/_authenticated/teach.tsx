@@ -5,7 +5,7 @@ import { ChatPanel } from "@/components/ChatPanel";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/teach")({
-  head: () => ({ meta: [{ title: "Teach-to-AI — StudyMate AI" }, { name: "description", content: "Learn by teaching: explain a topic to Mate in your own words." }, { property: "og:title", content: "Teach-to-AI — StudyMate AI" }, { property: "og:description", content: "Learn by teaching: explain a topic to Mate in your own words." }] }),
+  head: () => ({ meta: [{ title: "Teach-to-AI — StudyMate AI" }, { name: "description", content: "Learn by teaching: explain a topic to Mate in your own words." }, { property: "og:title", content: "Teach-to-AI — StudyMate AI" }, { property: "og:description", content: "Learn by teaching: explain a topic to Mate in your own words." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Page,
 });
 

@@ -9,7 +9,7 @@ import { makeGuide } from "@/lib/ai.functions";
 import { recordActivity } from "@/lib/study";
 
 export const Route = createFileRoute("/_authenticated/guide")({
-  head: () => ({ meta: [{ title: "Study Guide — StudyMate AI" }, { name: "description", content: "Personalized AI study guides with key terms, examples and a study plan." }, { property: "og:title", content: "Study Guide — StudyMate AI" }, { property: "og:description", content: "Personalized AI study guides with key terms, examples and a study plan." }] }),
+  head: () => ({ meta: [{ title: "Study Guide — StudyMate AI" }, { name: "description", content: "Personalized AI study guides with key terms, examples and a study plan." }, { property: "og:title", content: "Study Guide — StudyMate AI" }, { property: "og:description", content: "Personalized AI study guides with key terms, examples and a study plan." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Page,
 });
 

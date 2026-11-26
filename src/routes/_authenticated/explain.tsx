@@ -5,7 +5,7 @@ import { ChatPanel } from "@/components/ChatPanel";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/explain")({
-  head: () => ({ meta: [{ title: "I Don't Get It — StudyMate AI" }, { name: "description", content: "Stuck? Get a simpler explanation, as many times as you need." }, { property: "og:title", content: "I Don't Get It — StudyMate AI" }, { property: "og:description", content: "Stuck? Get a simpler explanation, as many times as you need." }] }),
+  head: () => ({ meta: [{ title: "I Don't Get It — StudyMate AI" }, { name: "description", content: "Stuck? Get a simpler explanation, as many times as you need." }, { property: "og:title", content: "I Don't Get It — StudyMate AI" }, { property: "og:description", content: "Stuck? Get a simpler explanation, as many times as you need." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Page,
 });
 
