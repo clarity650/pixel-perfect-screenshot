@@ -103,3 +103,37 @@
 .prose-chat h1, .prose-chat h2, .prose-chat h3 { font-size: 1.15rem; font-weight: 700; margin: 1rem 0 0.35rem; }
 .prose-chat strong { font-weight: 700; }
 .prose-chat code { background: var(--muted); padding: 0 0.25rem; border-radius: 0.25rem; }
+
+:root {
+  --bunny-vanilla: #fff7e6;
+  --bunny-blush: #f7dce2;
+  --bunny-sky: #dce5ed;
+  --bunny-outline: #bfa7a5;
+  --bunny-ink: #2d3a47;
+  --bunny-pink: #f7c8d3;
+  --bunny-rose: #b46a72;
+  --bunny-blue: #a9b7c6;
+  --bunny-sage: #a8b58a;
+}
+.bunny-art { width: 100% !important; height: 100% !important; overflow: visible; }
+.bunny-fur-vanilla { --bunny-fur: var(--bunny-vanilla); }
+.bunny-fur-blush { --bunny-fur: var(--bunny-blush); }
+.bunny-fur-sky { --bunny-fur: var(--bunny-sky); }
+.bunny-coat { fill: var(--bunny-fur); }
+.bunny-line { stroke: var(--bunny-outline); stroke-width: 2.5; }
+.bunny-cheek { fill: var(--bunny-pink); }
+.bunny-ink { fill: var(--bunny-ink); }
+.bunny-rose { fill: var(--bunny-rose); }
+.bunny-blue { fill: var(--bunny-blue); }
+.bunny-sage { fill: var(--bunny-sage); }
+.bunny-light { fill: var(--bunny-vanilla); }
+.bunny-pocket { fill: var(--bunny-blue); stroke: var(--bunny-vanilla); stroke-width: 2; }
+.bunny-smile { fill: none; stroke: var(--bunny-ink); stroke-width: 2.5; }
+.bunny-seam { fill: none; stroke: var(--bunny-pink); stroke-width: 3; }
+.bunny-shadow { fill: var(--border); opacity: 0.6; }
+.fur-swatch-vanilla { background: var(--bunny-vanilla); }
+.fur-swatch-blush { background: var(--bunny-blush); }
+.fur-swatch-sky { background: var(--bunny-sky); }
+.bunny-alive .bunny-character { transform-origin: 150px 325px; animation: bunny-breathe 4s ease-in-out infinite; }
+@keyframes bunny-breathe { 50% { transform: translateY(-3px) rotate(1deg); } }
+@media (prefers-reduced-motion: reduce) { .bunny-alive .bunny-character { animation: none; } }

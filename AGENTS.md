@@ -32,3 +32,6 @@ use the editor.
 - Points and streaks change only through the `record_activity` database function (students cannot update points directly) — prevents cheating.
 - AI calls live in `src/lib/ai.functions.ts` server functions behind `requireSupabaseAuth` — keeps prompts and keys server-side and limits AI use to signed-in students.
 - Badges/levels are derived client-side from activities in `src/lib/study.ts` (tested in `study.test.ts`) — no extra tables needed.
+- Bunny clothing unlocks derive from lifetime study days; only `save_bunny` can equip an earned outfit, while locked previews remain unsaved — prevents bypassing rewards and preserves unlocks across missed days.
+- Consistency bonuses and study-day counts update atomically in `record_activity` using the existing Manila study-day boundary — prevents duplicate daily rewards under concurrent sessions.
+- Bunny artwork uses layered SVG in `Bunny`, with wardrobe rules in `rewards.ts` mirrored by database helper functions — keeps try-on visuals composable and rules testable.

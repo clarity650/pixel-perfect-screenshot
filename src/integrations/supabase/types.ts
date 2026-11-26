@@ -52,28 +52,37 @@ export type Database = {
       }
       profiles: {
         Row: {
+          bunny_fur: string
+          bunny_outfit: string
           created_at: string
           display_name: string
           id: string
           last_study_date: string | null
           points: number
           streak: number
+          study_days: number
         }
         Insert: {
+          bunny_fur?: string
+          bunny_outfit?: string
           created_at?: string
           display_name?: string
           id: string
           last_study_date?: string | null
           points?: number
           streak?: number
+          study_days?: number
         }
         Update: {
+          bunny_fur?: string
+          bunny_outfit?: string
           created_at?: string
           display_name?: string
           id?: string
           last_study_date?: string | null
           points?: number
           streak?: number
+          study_days?: number
         }
         Relationships: []
       }
@@ -82,6 +91,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      bunny_required_days: { Args: { _outfit: string }; Returns: number }
       record_activity: {
         Args: {
           _kind: string
@@ -90,6 +100,14 @@ export type Database = {
           _topic: string
           _total?: number
         }
+        Returns: number
+      }
+      save_bunny: {
+        Args: { _fur: string; _outfit: string }
+        Returns: undefined
+      }
+      study_consistency_bonus: {
+        Args: { _new_day: boolean; _streak: number }
         Returns: number
       }
     }
